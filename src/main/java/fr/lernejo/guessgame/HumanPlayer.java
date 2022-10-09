@@ -10,11 +10,20 @@ import java.util.Scanner;
 public class HumanPlayer implements Player{
 
     Logger logger =  LoggerFactory.getLogger("player");
-
+    Scanner scan = new Scanner(System.in);
 
     @Override
     public long askNextGuess() {
-        return 0;
+        long number = -1;
+        while (number==-1) {
+            try {
+                number = Long.parseLong(scan.nextLine());
+            } catch (Exception e) {
+                logger.log("Error occurred. message : " + e.getMessage());
+            }
+        }
+        logger.log("The player give the number "+number);
+        return number;
     }
 
     @Override
