@@ -5,7 +5,6 @@ import java.util.Scanner;
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
-import java.util.Scanner;
 
 public class HumanPlayer implements Player{
 
@@ -28,7 +27,13 @@ public class HumanPlayer implements Player{
 
     @Override
     public void respond(boolean lowerOrGreater) {
-
+        if (lowerOrGreater) {
+            logger.log("Hey, the number is higher than the guess");
+            System.out.println("Hey, the number is higher than the guess");
+        } else {
+            logger.log("Hey, the number is lower than the guess");
+            System.out.println("Hey, the number is lower than the guess");
+        }
     }
 
 

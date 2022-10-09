@@ -33,7 +33,9 @@ public class Simulation {
             return false;
         }
 
-        public void loopUntilPlayerSucceed() {
-            while (!nextRound()){ }
+        public void loopUntilPlayerSucceed(long count) {
+            long  n = 0;
+            long start = System.currentTimeMillis();
+            while
         }
 }
