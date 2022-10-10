@@ -8,8 +8,8 @@ import fr.lernejo.logger.LoggerFactory;
 
 public class HumanPlayer implements Player{
 
-    Logger logger =  LoggerFactory.getLogger("player");
-    Scanner scan = new Scanner(System.in);
+    private final Logger logger =  LoggerFactory.getLogger("player");
+    private final Scanner scan = new Scanner(System.in);
 
     @Override
     public long askNextGuess() {
