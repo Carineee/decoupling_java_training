@@ -5,11 +5,12 @@ import java.security.SecureRandom;
 public class Launcher {
 
     public static void main(String[] args) {
+        SecureRandom random = new SecureRandom();
+        long randomNumber = random.nextLong(100);
+
         if (args[0].equals("-interactive")) {
             Simulation sm = new Simulation(new HumanPlayer());
-            SecureRandom random = new SecureRandom();
-            //long random Number = random.nextInt(100);
-            sm.initialize(random.nextInt(101));
+            sm.initialize(randomNumber);
             sm.loopUntilPlayerSucceed(Long.MAX_VALUE);
         }
 
@@ -20,10 +21,11 @@ public class Launcher {
         }
 
         else {
+            System.out.println("L'âge du Capitain\n");
             System.out.println("There is two methods to launch the program.\n");
             System.out.println("Please enter one of the desired methods: \n");
             System.out.println("1) -interactive : guess by yourself  in limit of attempt by the computer.\n");
-            System.out.println("2) -auto\n: enter a number and let the computer to guess it.");
+            System.out.println("2) -auto: enter a number and let the computer to guess it.");
         }
 
     }

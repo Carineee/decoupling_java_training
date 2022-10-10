@@ -1,32 +1,29 @@
 package fr.lernejo.guessgame;
 
-import java.util.Scanner;
-
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
 public class ComputerPlayer implements Player{
 
-    Logger logger =  LoggerFactory.getLogger("player");
-    Scanner scan = new Scanner(System.in);
-    long max = Long.MAX_VALUE;
-    long min = Long.MIN_VALUE;
+    private final Logger logger =  LoggerFactory.getLogger("player");
+    private long max = Long.MAX_VALUE;
+    private long min = Long.MIN_VALUE;
 
     @Override
     public long askNextGuess() {
-        long answer = (this.max + this.min)/2;
-        return answer;
+        logger.log(String.valueOf((min + max) / 2));
+        return (min + max) / 2;
     }
 
     @Override
     public void respond(boolean lowerOrGreater) {
-        if (!lowerOrGreater){
+        if (lowerOrGreater){
+            max = (min + max)/2;
             logger.log("Smaller !");
-            this.max = (this.min + this.max)/2;
         }
         else{
+            min = (min + max)/2;
             logger.log("bigger !");
-            this.min = (this.min + this.max)/2;
         }
 
     }

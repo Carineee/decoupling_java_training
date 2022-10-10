@@ -13,16 +13,8 @@ public class HumanPlayer implements Player{
 
     @Override
     public long askNextGuess() {
-        long number = -1;
-        while (number==-1) {
-            try {
-                number = Long.parseLong(scan.nextLine());
-            } catch (Exception e) {
-                logger.log("Error occurred. message : " + e.getMessage());
-            }
-        }
-        logger.log("The player give the number "+number);
-        return number;
+        logger.log("Enter your guess");
+        return scan.nextLong();
     }
 
     @Override
