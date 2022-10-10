@@ -9,23 +9,25 @@ public class ComputerPlayer implements Player{
 
     Logger logger =  LoggerFactory.getLogger("player");
     Scanner scan = new Scanner(System.in);
+    long max = Long.MAX_VALUE;
+    long min = Long.MIN_VALUE;
 
     @Override
     public long askNextGuess() {
-        long number = -1;
-        while (number==-1) {
-            try {
-                number = Long.parseLong(scan.nextLine());
-            } catch (Exception e) {
-                logger.log("Error occurred. message : " + e.getMessage());
-            }
-        }
-        logger.log("The player give the number "+number);
-        return number;
+        long answer = (this.max + this.min)/2;
+        return answer;
     }
 
     @Override
     public void respond(boolean lowerOrGreater) {
+        if (!lowerOrGreater){
+            logger.log("Smaller !");
+            this.max = (this.min + this.max)/2;
+        }
+        else{
+            logger.log("bigger !");
+            this.min = (this.min + this.max)/2;
+        }
 
     }
 
